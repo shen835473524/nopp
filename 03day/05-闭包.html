@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            float: left;
+            margin-left: 10px;
+        }
+
+        img {
+            width: 200px;
+            height: 180px;
+        }
+
+        input {
+            margin-left: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><img src="img/jd01.jpg" alt=""><br /><input type="button" value="赞(1)"></li>
+        <li><img src="img/jd02.jpg" alt=""><br /><input type="button" value="赞(1)"></li>
+        <li><img src="img/jd03.jpg" alt=""><br /><input type="button" value="赞(1)"></li>
+        <li><img src="img/jd04.jpg" alt=""><br /><input type="button" value="赞(1)"></li>
+    </ul>
+    <script>
+        /*    let arr = [1, 2, 3, 4, 5]
+            let obj = {}
+            let timer = new Date()
+    
+            console.log(arr instanceof Object);
+            console.log(Object.prototype.toString.call(arr));//[object  Array]
+            console.log(Object.prototype.toString.call(obj));//[object  Object]
+            console.log(Object.prototype.toString.call(timer))//
+            function getFun(type) {
+                return function (obj) {
+                    return Object.prototype.toString.call(obj) === type
+                }
+            }
+    
+            let isArray = getFun('[object Array]')
+            let isObject = getFun('[object Object]')
+    
+            console.log(isArray([]));
+            console.log(isObject({}));
+            console.log(getFun('[object Array]')([]));*/
+        /*  function fn() {
+              let num = 10
+              return function () {
+                  return num
+              }
+          }
+          console.log(fn()());*/
+        let btn = document.querySelectorAll('input')
+        for (let k of btn) {
+            let num = 1
+            k.onclick = function () {
+                this.value = `赞(${num++})`
+            }
+        }
+        //闭包–打车问题
+        //问题：常州打车起步价10元（三公里以内),之后每多一公里加2.1块钱。用户输入公里数就可以知道打车的价格。如果有拥挤的情况，总价格多收取10元。
+        //dis 代表公里数    yd、  true代表拥堵
+
+        function Count() {
+            let price = 10
+            let sum = 0
+            return function (dis, yd) {
+                if (dis < 3 && yd == true) {
+                    return sum = price + 10
+                }
+                if (dis < 3 && yd == false) {
+                    return sum = price
+                }
+                if (dis >= 3 && yd == true) {
+                    return sum = price + 2.1 * (dis - 3) + 10
+                }
+                if (dis >= 3 && yd == false) {
+                    return sum = price + 2.1 * (dis - 3)
+                }
+            }
+        }
+        console.log(Count()(15, false));
+
+
+        /*     var name = "The Window";
+          var object = {
+              name: "My Object",
+              getNameFunc: function () {
+                  return function () {
+                      return this.name;
+                  };
+              }
+          };
+  
+          console.log(object.getNameFunc()())
+  
+          console.log('------------------------------------------------');
+  
+  
+          var name = "The Window";
+          var object = {
+              name: "My Object",
+              getNameFunc: function () {
+                  var that = this;
+                  return function () {
+                      return that.name;
+                  };
+              }
+          };
+          console.log(object.getNameFunc()())
+    let obj1 = {
+           age: 18,
+           car: ['奔驰', '奥迪']
+       }
+       let obj2 = {}
+
+       console.log([][0].split('')[2]);*/
+    </script>
+</body>
+
+</html>

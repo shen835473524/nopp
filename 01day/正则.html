@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let reg = /[a-z]/  //小写字母中的一个  
+        //{n}两次正好n个  {n，}你次以上  + 至少一次  *表示0至多个   ？零个或一个
+        console.log(reg.test('ac'));
+        console.log(reg.test('bc'));
+        console.log(reg.test('aaac'));
+        console.log(reg.test('acaa'));
+        //  ^表示开头   $表示结尾
+        reg = /^a/
+        /* console.log('abc');
+         console.log('bcabc');*/
+
+        /*
+        检查是否还有.      .代表任意字符
+        在正则表达式中\表示转义字符  
+           
+        */
+        reg = /\./
+        console.log(reg.test('.'));
+        console.log(reg.test('abc'));
+        console.log(reg.test('Abc--@#$'));
+
+        console.log('b.\\');
+
+
+
+
+        /*
+        
+        \w 表示任意字母 数字 _  [A-z0-9_]
+        \W 除了字母 数字 _      [^A-z0-9_]
+        \d  任意数字       [0-9]
+        \D除了任意数字    [^0-9]
+         \s 空格
+          \S  除了空格
+
+
+        */
+        reg = /\w/
+        console.log(reg.test('1'));
+        console.log(reg.test('1'));
+        console.log(reg.test('1'));
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .one {
+            width: 200px;
+            height: 200px;
+            background-color: palegreen;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .two {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            margin-bottom: 50px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one"></div>
+    <div class="two"></div>
+    <div>
+        123
+    </div>
+    <script>
+        /*   let data = {
+               '0': 'one',
+               '2': 'two',
+               '3': 'three',
+               '4': 'four',
+               length: 4
+           }
+   
+           for (let k in data) {
+               console.log(data[k]);
+           }
+           data.push('five')
+          let a = Array.prototype.push.call(data, 'five')
+            console.log(Array.prototype.join.call(data, '+'));
+            console.log(data);
+        let div = document.querySelectorAll('div')
+          div = Array.from(div)
+          div.push('123')
+          console.log(div);
+        data = Array.from(data)
+        console.log(data);*/
+
+        let div1 = document.querySelector('.one')
+        let div2 = document.querySelector('.two')
+        let num = 0
+        let timer = null
+        timer = setInterval(() => {
+            num += 20
+            div1.style.left = num + 'px'
+            if (num >= 800) {
+                clearInterval(timer)
+            }
+        }, 100)
+
+        const num1 = 20
+        function fn() {
+            // requestAnimationFrame(() => {
+            //     num1 += 20
+            //     div2.style.left = num1 + 'px'
+            //     if (num1 >= 800) {
+            //         return
+            //     }
+            //     fn()
+            // }, 100)
+
+            console.log(num, num1);
+        }
+        fn()
+    </script>
+</body>
+
+</html>

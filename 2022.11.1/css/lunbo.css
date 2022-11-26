@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding:0;
+}
+#swiper{
+    width:600px;
+    height: 500px;
+    border:2px solid black;
+    position:relative;
+    left:50%;
+    margin-left:-300px;
+}
+img{
+    position:absolute;
+}
+.circle{
+    position:absolute;
+    z-index: 999;
+    bottom: 10px;
+}
+.lis{
+    display: inline-block;
+    background-color:#ccc;
+    width:20px;
+    height: 20px; 
+    margin-left:10px;
+    border-radius: 50%;
+    
+
+}
+.active{
+    background-color:red
+}

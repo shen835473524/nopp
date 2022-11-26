@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+
+<body>
+    <button>点击抽奖</button>
+    <script src="../js/common.js"></script>
+    <script>
+        let btn = document.querySelector('button')
+        btn.addEventListener('click', function () {
+            // setTimeout(() => {
+            //     let n = random(0, 100)
+            //     if (n <= 30) {
+            //         console.log('恭喜获得10元代金券')
+
+            //     } else {
+            //         console.log('再接再厉')
+
+            //     }
+            // }, 2000)
+
+            //resolve  reject 都是函数型数据 
+            /*  let pro = new Promise((resolve, reject) => {
+                  setTimeout(() => {
+                      let n = random(0, 100)
+                      if (n <= 30) {
+                          resolve(n)
+                      } else {
+                          reject(n)
+                      }
+                  }, 500)
+              })
+  
+              pro.then((n) => {
+                  console.log('恭喜获得10元代经卷' + n);
+              }, (n) => {
+                  console.log('再接再厉' + n);
+              })*/
+            //点击按钮  发送ajax请求
+            //创建对象
+            const xhr = new XMLHttpRequest()
+
+            //初始化
+            xhr.open('GET', 'https://api.apiopen.top/getJoke')
+            //发送
+            xhr.send()
+
+            ///处理响应结果
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        ///控制台输出响应体
+                        console.log(xhr.response);
+                    } else {
+                        //控制台输出响应状态码
+
+                        console.log(xhr.status);
+                        console.log(11);
+                    }
+                }
+            }
+
+
+
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>

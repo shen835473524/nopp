@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.创建XMLHttpRequest对象
+        let xhr = new XMLHttpRequest();
+        //2.open(method,url,async) 与服务器建立连接(请求方式、请求url、是否需要异步)
+        //method:请求方式,get(明文请求),post(密文请求)
+        //url:请求地址:https://www.taobao.com/
+        //async:是否需要异步（有很多请求一起发送）,同步（只有一个请求）
+        xhr.open("get", "https://apis.tianapi.com/ncov/index?key=b56ccbbb68d57a0c03a89d8812c2eb22", true)
+        //3.发送请求
+        xhr.send()
+        //如果返回的是字符串格式:responseText
+        console.log(JSON.parse(xhr.responseText));
+
+
+    </script>
+</body>
+
+</html>

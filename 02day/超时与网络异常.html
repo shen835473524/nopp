@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>
+        点击发送请求
+    </button>
+
+    <div>
+
+    </div>
+
+    <script>
+
+        let btn = document.querySelector('button')
+        let div = document.querySelector('div')
+        btn.onclick = function () {
+            //创建对象
+            const xhr = new XMLHttpRequest()
+            //初始化 配置url地址
+
+            //超时设置
+            xhr.timeout = 2000//如果超时了 就取消请求
+            //超时回调
+            xhr.ontimeout = function () {
+                alert('网络异常,请稍后重试')
+            }
+            //网络异常回调
+            xhr.onerror = function () {
+                alert('你的网络似乎有问题')
+            }
+            xhr.open('GET', 'http://192.168.6.63:8000/delay')
+            //发送
+            xhr.send()
+
+
+            //超时设置
+
+            //绑定事件
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        div.innerHTML = xhr.response
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
